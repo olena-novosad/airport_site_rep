@@ -26,7 +26,11 @@ SECRET_KEY = "django-insecure-8a3qh^+bwmr+4q623qu0*-mva+%nb$9u9=fn$w2i584m%^qflw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'airport-site.azurewebsites.net',  # ваш Azure домен
+    'localhost',            # для локального хосту
+    '127.0.0.1',           # для локального хосту
+]
 
 
 # Application definition
@@ -62,10 +66,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'airport_site',
-        'USER': 'root',
-        'PASSWORD': '13062006olena',
-        'HOST': 'localhost',
+        'USER': 'main_admin',
+        'PASSWORD': '13062006olena-',
+        'HOST': 'airport-site.mysql.database.azure.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ca': str(BASE_DIR.parent / 'DigiCertGlobalRootCA.crt.pem')}
+        }
     }
 }
 
