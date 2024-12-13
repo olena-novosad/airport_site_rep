@@ -170,9 +170,14 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Опціонально: час активної сесії (у секундах)
 SESSION_COOKIE_AGE = 3600  # Наприклад, 1 година
-SESSION_COOKIE_SECURE = False  # Якщо ви працюєте локально
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://fitness-app-good.azurewebsites.net",
+]
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
